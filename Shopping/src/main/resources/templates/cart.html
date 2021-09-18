@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.themyleaf.org">
+<head th:replace="layout/navbar::html_header">
+	<meta charset="UTF-8" />
+	<title></title>
+
+</head>
+<body>
+	<nav th:replace="layout/navbar::navbar"></nav>
+	<section> 
+	<div class="container">
+		<div class="text-center">
+			<h1><img th:src="@{/img/desktop.jpg}" alt="" class="navimg" />List Cart</h1>
+		</div>
+		
+		<table class="table  table-striped table-bordered mt-2">
+			<thead class="">  
+			  <tr class="bg-primary">
+			    <th scope="col">Action</th>
+				<th scope="col">ID#</th>
+				<th scope="col">Name</th>
+				<th scope="col">Photo</th>
+				<th scope="col">Price</th>
+				<th scope="col">QTY</th>
+				<th scope="col">Sub Total</th>
+			  </tr>
+			</thead>
+			<tbody>
+			<th:block th:with="products=${#session.getAttribute('cart')}" >
+			   <tr th:each="item,status : ${products}">
+			    <td scope="row"> <input type="hidden" th:value="${item.product.id}" id="item_id" />
+			    <input type="button"   class="btn btn-danger btn-sm" value="Remove" id="btn_item">
+			   <!-- <a th:href="@{'/cart/remove/'+${item.product.id}}" onclick="return confirm('are you sure be want delete?!')">remove</a>-->
+			    </td>
+			  
+				<td scope="row" th:text="${status.count}"></td>
+				<td th:text="${item.product.name}"></td>
+				<td ><img th:src="@{'/img/'+${item.product.photo}}" alt="" class="my_picture" /></td>
+				<td th:text="${item.product.price}"></td>
+				<td > <input type="hidden" th:value="${item.product.id}" id="pid" />
+				<input type="number" min="1" name="qty" id="qty" 
+				       th:value="${item.quantity}" class="form-control text-center" style="width: 200px;" /></td>
+				<td th:text="${item.product.price * item.quantity}"></td>
+			  </tr>
+			  
+			  <tr>
+			   <td colspan="6" align="right">sum:</td>
+			   <td th:text="${#numbers.formatDecimal(#session.getAttribute('total'),3,'POINT',2,'COMMA')}"></td> 
+			  </tr>
+			  </th:block>
+			</tbody>
+		  </table>
+	      <a th:href="@{/product/}" class="btn btn-primary btn-sm">Continue Shopping</a>
+	</div>
+	
+	</section>
+
+	<footer id="hostTag" th:replace="layout/footer::footer"> </footer>
+  
+
+</body>
+</html>

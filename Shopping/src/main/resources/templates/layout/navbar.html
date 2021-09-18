@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.themyleaf.org">
+<head th:fragment="html_header">
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title th:text="${title}"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/aos.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/fontawesome.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webfonts/fa-solid-900.ttf}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webfonts/fa-solid-900.woff}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webfonts/fa-solid-900.woff2}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sweetalert2.min.css}" />
+</head>
+<body>
+
+	<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark text-uppercase" style="background-color: #3F51B5;">
+        <a class="navbar-brand" href="#"><img th:src="@{/img/desktop.jpg}" alt="" class="navimg" />Shopping</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+          </ul>
+          
+          <form class="form-inline my-2 my-lg-0" action="#" method="GET"> 
+              
+              <input type="hidden" name="search" value="" />
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  name="keyword" th:value="${keyword}" required> 
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          
+        </div>
+      </nav>  
+      
+</body>
+</html>

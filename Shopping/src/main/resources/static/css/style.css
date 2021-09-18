@@ -1,0 +1,53 @@
+html, body {
+  overflow-x: initial !important;
+  scroll-behavior: smooth;
+  background-size: cover;
+  color: #000;
+  font-family:'DroidNaskh-Bold',fallback,'Roboto';
+  height:100%;
+  
+}
+
+
+footer-y{
+	height:auto !important;
+    min-height:100%;
+}
+footer {
+    background-color: #181818;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+section{
+	height:100vh;
+}
+table .my_picture{
+	width:90px;
+	height:70px;
+}
+.bg-primary{
+	color:white;
+}
+.dates{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.navimg{
+	width:50px;
+	height:50px;
+}
+.thead{
+	color:white;
+	
+}
+.download{
+  display: inline-flex;
+  margin-top: 10px;
+}
+#download{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
